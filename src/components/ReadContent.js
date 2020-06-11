@@ -1,6 +1,6 @@
 import React,{Component, Fragment} from 'react';
 
-class Content extends Component {
+class ReadContent extends Component {
     render(){
       return (
         <Fragment key="Content">
@@ -13,4 +13,4 @@ class Content extends Component {
     }
   }
 
-  export default Content;
+  export default ReadContent;

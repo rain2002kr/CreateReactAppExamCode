@@ -2,7 +2,8 @@ import React,{Component, Fragment} from 'react';
 import './App.css';
 import Subject from'./components/Subject';
 import Toc from'./components/Toc';
-import Content from'./components/Content';
+import ReadContent from'./components/ReadContent';
+import CreateContent from'./components/CreateContent';
 import Control from'./components/Control';
 
 
@@ -10,7 +11,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      mode : '',
+      mode : 'read',
       SeletedMode : 1,
       Subject:{id:'0',title:'WEB', sub:'World Wide Web!'},
       Toc:[
@@ -28,7 +29,18 @@ render(){
   var index = Number(this.state.SeletedMode);
   var _title = this.state.Content[index].title;;
   var _dsc = this.state.Content[index].dsc;
-  
+  var mode = this.state.mode;
+  var article = <ReadContent title = {_title} sub = {_dsc}></ReadContent>
+
+  if(mode === "create"){
+    article = <CreateContent title = "CREATE" sub = "create content"></CreateContent>
+  }else if(mode === "update"){
+    article = <ReadContent title = {_title} sub = {_dsc}></ReadContent>
+  }else {
+    article = <ReadContent title = {_title} sub = {_dsc}></ReadContent>
+  }
+
+
     return (
       <Fragment key="App">
         <Subject id={this.state.Subject.id} title={this.state.Subject.title} sub={this.state.Subject.sub} 
@@ -43,7 +55,7 @@ render(){
           });
         }.bind(this)}></Control>
 
-        <Content title = {_title} sub = {_dsc}></Content>
+        {article}
 
       </Fragment>
     );
