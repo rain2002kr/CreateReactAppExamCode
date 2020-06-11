@@ -33,7 +33,9 @@ render(){
   var article = <ReadContent title = {_title} sub = {_dsc}></ReadContent>
 
   if(mode === "create"){
-    article = <CreateContent title = "CREATE" sub = "create content"></CreateContent>
+    article = <CreateContent onSubmit={function(title, dsc){
+      console.log(title, dsc);
+    }.bind(this)}></CreateContent>
   }else if(mode === "update"){
     article = <ReadContent title = {_title} sub = {_dsc}></ReadContent>
   }else {

@@ -5,10 +5,16 @@ class CreateContent extends Component {
       return (
         <Fragment key="Content">
           <article>
-            <h1>{this.props.title}</h1>
-            <p>{this.props.sub}</p>
+            <h1>"CREATE"</h1>
+            <p>"create content"</p>
             <form action="/create" method="post" onSubmit = {function(e){
-              e.preventDefault(); }.bind(this)}>
+              e.preventDefault();
+              debugger;
+              this.props.onSubmit(
+                e.target.title.value,
+                e.target.dsc.value
+              );
+              }.bind(this)}>
               
               <p><input type="text" placeholder="title" name="title"></input></p>
               
