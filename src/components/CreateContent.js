@@ -9,7 +9,7 @@ class CreateContent extends Component {
             <p>"create content"</p>
             <form action="/create" method="post" onSubmit = {function(e){
               e.preventDefault();
-              debugger;
+              //debugger;
               this.props.onSubmit(
                 e.target.title.value,
                 e.target.dsc.value
